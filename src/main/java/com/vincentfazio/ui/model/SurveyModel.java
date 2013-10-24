@@ -7,9 +7,9 @@ import com.vincentfazio.ui.bean.QuestionBean;
 
 public interface SurveyModel extends Model {
     
-    void getQuestions(String vendorId, AsyncCallback<List<QuestionBean>> asyncCallback);
+    void getQuestions(String companyId, AsyncCallback<List<QuestionBean>> asyncCallback);
     
-    void getQuestion(String vendorId, QuestionBean question, AsyncCallback<QuestionBean> asyncCallback);
-    void answerQuestion(String vendorId, QuestionBean response, AsyncCallback<String> asyncCallback);
+    void getQuestion(String companyId, QuestionBean question, AsyncCallback<QuestionBean> asyncCallback);
+    void answerQuestion(String companyId, QuestionBean response, AsyncCallback<String> asyncCallback);
 
 }

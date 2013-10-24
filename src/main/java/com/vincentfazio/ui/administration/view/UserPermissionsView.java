@@ -25,13 +25,13 @@ import com.google.gwt.view.client.SingleSelectionModel;
 import com.vincentfazio.ui.administration.activity.UserPermissionsSaveActivity;
 import com.vincentfazio.ui.administration.global.GwtAdminGlobals;
 import com.vincentfazio.ui.administration.place.UserPermissionsPlace;
-import com.vincentfazio.ui.administration.view.component.VendorPermissionCellComponentCallback;
-import com.vincentfazio.ui.bean.VendorPermissionBean;
+import com.vincentfazio.ui.administration.view.component.CompanyPermissionCellComponentCallback;
+import com.vincentfazio.ui.bean.CompanyPermissionBean;
 import com.vincentfazio.ui.view.component.DataProviderSearchBox;
 import com.vincentfazio.ui.view.component.DataProviderSearchBoxUpdateCallback;
 import com.vincentfazio.ui.view.util.GwtCellTableResources;
 
-public class UserPermissionsView extends Composite implements UserPermissionsDisplay, DataProviderSearchBoxUpdateCallback, VendorPermissionCellComponentCallback {
+public class UserPermissionsView extends Composite implements UserPermissionsDisplay, DataProviderSearchBoxUpdateCallback, CompanyPermissionCellComponentCallback {
 
     private static UserPermissionsUiBinder uiBinder = GWT.create(UserPermissionsUiBinder.class);
 
@@ -41,7 +41,7 @@ public class UserPermissionsView extends Composite implements UserPermissionsDis
 
 
     public UserPermissionsView() {
-        createUnauthorizedVendorList();
+        createUnauthorizedCompanyList();
         
         initWidget(uiBinder.createAndBindUi(this));
         
@@ -70,7 +70,7 @@ public class UserPermissionsView extends Composite implements UserPermissionsDis
         saveButton.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
-                new UserPermissionsSaveActivity(GwtAdminGlobals.getInstance(), userId, userRole.toLowerCase(), vendorSearchBox.getUnfilteredList()).start(null, null);
+                new UserPermissionsSaveActivity(GwtAdminGlobals.getInstance(), userId, userRole.toLowerCase(), companySearchBox.getUnfilteredList()).start(null, null);
             }
         });
         
@@ -98,27 +98,27 @@ public class UserPermissionsView extends Composite implements UserPermissionsDis
     DivElement backDiv;
     
     @UiField(provided=true)
-    DataProviderSearchBox<VendorPermissionBean> vendorSearchBox;
+    DataProviderSearchBox<CompanyPermissionBean> companySearchBox;
 
     @UiField(provided=true)
-    CellTable<VendorPermissionBean> vendorPermissions;
+    CellTable<CompanyPermissionBean> companyPermissions;
     
     @UiField(provided=true)
-    SimplePager vendorPermissionsPager;
+    SimplePager companyPermissionsPager;
 
     @UiField
-    DivElement vendorlistDiv;
+    DivElement companylistDiv;
     
     @UiField
-    DivElement emptyVendorlistDiv;
+    DivElement emptyCompanylistDiv;
 
      
     private String userId = "";
     private String userRole = "";
-    private ListDataProvider<VendorPermissionBean> vendorPermissionsDataProvider;   
-    private SingleSelectionModel<VendorPermissionBean> vendorPermissionsSelectionModel;
-    private VendorPermissionHeader vendorPermissionHeader;
-    private ArrayList<String> vendorList = new ArrayList<String>();
+    private ListDataProvider<CompanyPermissionBean> companyPermissionsDataProvider;   
+    private SingleSelectionModel<CompanyPermissionBean> companyPermissionsSelectionModel;
+    private CompanyPermissionHeader companyPermissionHeader;
+    private ArrayList<String> companyList = new ArrayList<String>();
 
     private boolean hasChanges = false;
     
@@ -144,9 +144,9 @@ public class UserPermissionsView extends Composite implements UserPermissionsDis
         if (userRole.equals("administrator")) {
             this.userRole = "Administrator";            
         } else if (userRole.equals("customer")) {
+            this.userRole = "Customer Admin";            
+        } else if (userRole.equals("company")) {
             this.userRole = "Customer";            
-        } else if (userRole.equals("vendor")) {
-            this.userRole = "Supplier";            
         }  else {
             this.userRole = userRole;
         }
@@ -154,13 +154,13 @@ public class UserPermissionsView extends Composite implements UserPermissionsDis
     }
 
     @Override
-    public List<VendorPermissionBean> getVendorsPermissionList() {
-        return vendorSearchBox.getUnfilteredList();
+    public List<CompanyPermissionBean> getCompaniesPermissionList() {
+        return companySearchBox.getUnfilteredList();
     }
     
     @Override
-    public void setVendorsPermissionList(List<VendorPermissionBean> vendorPermissionList) {
-        vendorSearchBox.setUnfilteredList(vendorPermissionList);
+    public void setCompaniesPermissionList(List<CompanyPermissionBean> companyPermissionList) {
+        companySearchBox.setUnfilteredList(companyPermissionList);
         setHasUnsavedChanges(false);
     }
     
@@ -168,10 +168,10 @@ public class UserPermissionsView extends Composite implements UserPermissionsDis
     public void handleSearchBoxChange() {
         areAllSelected();
         
-        Style listStyle = vendorlistDiv.getStyle();
-        Style emptyStyle = emptyVendorlistDiv.getStyle();
+        Style listStyle = companylistDiv.getStyle();
+        Style emptyStyle = emptyCompanylistDiv.getStyle();
         
-        if (vendorPermissionsDataProvider.getList().isEmpty()) {
+        if (companyPermissionsDataProvider.getList().isEmpty()) {
             listStyle.setDisplay(Display.NONE);
             emptyStyle.setDisplay(Display.BLOCK);
         } else {
@@ -210,7 +210,7 @@ public class UserPermissionsView extends Composite implements UserPermissionsDis
 
     @Override
     public void handleHeaderSelection(boolean isSelected) {
-        selectAllVendors(isSelected);
+        selectAllCompanies(isSelected);
     }
 
     private void setUserRoleLabel() {
@@ -218,74 +218,74 @@ public class UserPermissionsView extends Composite implements UserPermissionsDis
     }
     
     
-    private void createUnauthorizedVendorList() {
+    private void createUnauthorizedCompanyList() {
 
         CellTable.Resources resources = GWT.create(GwtCellTableResources.class);
-        vendorPermissions = new CellTable<VendorPermissionBean>(0, resources); // the page size should be set in the UIBinder definition
+        companyPermissions = new CellTable<CompanyPermissionBean>(0, resources); // the page size should be set in the UIBinder definition
         
-        vendorPermissionsSelectionModel = new SingleSelectionModel<VendorPermissionBean>();
-        vendorPermissions.setSelectionModel(vendorPermissionsSelectionModel);
+        companyPermissionsSelectionModel = new SingleSelectionModel<CompanyPermissionBean>();
+        companyPermissions.setSelectionModel(companyPermissionsSelectionModel);
         
 
-        Column<VendorPermissionBean, VendorPermissionBean> vendorPermissionSelectionColumn = new Column<VendorPermissionBean, VendorPermissionBean>(new VendorPermissionCell(this)) {
+        Column<CompanyPermissionBean, CompanyPermissionBean> companyPermissionSelectionColumn = new Column<CompanyPermissionBean, CompanyPermissionBean>(new CompanyPermissionCell(this)) {
             @Override
-            public VendorPermissionBean getValue(VendorPermissionBean vendorPermission) {
-                return vendorPermission;
+            public CompanyPermissionBean getValue(CompanyPermissionBean companyPermission) {
+                return companyPermission;
             }
         };   
-        vendorPermissionHeader = new VendorPermissionHeader("Supplier Access", vendorPermissions, this);
-        vendorPermissions.addColumn(vendorPermissionSelectionColumn, vendorPermissionHeader);
+        companyPermissionHeader = new CompanyPermissionHeader("Company Access", companyPermissions, this);
+        companyPermissions.addColumn(companyPermissionSelectionColumn, companyPermissionHeader);
                 
-        vendorPermissionsPager = new SimplePager();
-        vendorPermissionsPager.setDisplay(vendorPermissions);
+        companyPermissionsPager = new SimplePager();
+        companyPermissionsPager.setDisplay(companyPermissions);
         
-        vendorPermissionsDataProvider = new ListDataProvider<VendorPermissionBean>();
-        vendorPermissionsDataProvider.addDataDisplay(vendorPermissions);
+        companyPermissionsDataProvider = new ListDataProvider<CompanyPermissionBean>();
+        companyPermissionsDataProvider.addDataDisplay(companyPermissions);
         
-        vendorSearchBox = new DataProviderSearchBox<VendorPermissionBean>(vendorPermissionsDataProvider, new VendorPermissionBean.VendorNameFieldContainsStringComparator());
-        vendorSearchBox.setPrompt("Type to search for supplier...");
-        vendorSearchBox.setSearchBoxUpdateCallback(this);
+        companySearchBox = new DataProviderSearchBox<CompanyPermissionBean>(companyPermissionsDataProvider, new CompanyPermissionBean.CompanyNameFieldContainsStringComparator());
+        companySearchBox.setPrompt("Type to search for company...");
+        companySearchBox.setSearchBoxUpdateCallback(this);
 
     }
     
-    private void selectAllVendors(boolean hasAccess) {
-        List<VendorPermissionBean> vendorPermissions = vendorPermissionsDataProvider.getList();
-        for (VendorPermissionBean vendorPermission: vendorPermissions) {
-            vendorPermission.setAccess(hasAccess);      
+    private void selectAllCompanies(boolean hasAccess) {
+        List<CompanyPermissionBean> companyPermissions = companyPermissionsDataProvider.getList();
+        for (CompanyPermissionBean companyPermission: companyPermissions) {
+            companyPermission.setAccess(hasAccess);      
         }
-        vendorPermissionsDataProvider.flush();
-        vendorPermissionsDataProvider.refresh();
+        companyPermissionsDataProvider.flush();
+        companyPermissionsDataProvider.refresh();
         setHasUnsavedChanges(true);
     }
     
     private void areAllSelected() {
         Boolean allSelected = true;
         
-        for (VendorPermissionBean vendorPermission: vendorPermissionsDataProvider.getList()) {
-            if (!vendorPermission.hasAccess()) {
+        for (CompanyPermissionBean companyPermission: companyPermissionsDataProvider.getList()) {
+            if (!companyPermission.hasAccess()) {
                 allSelected = false;
                 break;
             }
         }
         
-        vendorPermissionHeader.setValue(allSelected);
+        companyPermissionHeader.setValue(allSelected);
     }
 
     @Override
-    public void setVendorList(ArrayList<String> vendors) {
-        vendorList.clear();
-        vendorList.addAll(vendors);
+    public void setCompanyList(ArrayList<String> companies) {
+        companyList.clear();
+        companyList.addAll(companies);
         
     }
 
     @Override
-    public ArrayList<String> getVendorList() {
-        return vendorList;
+    public ArrayList<String> getCompanyList() {
+        return companyList;
     }
 
     @Override
-    public boolean isVendorListLoaded() {
-        return (null != vendorList) && !vendorList.isEmpty() ;
+    public boolean isCompanyListLoaded() {
+        return (null != companyList) && !companyList.isEmpty() ;
     }
 
 }

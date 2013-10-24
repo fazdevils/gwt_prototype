@@ -46,7 +46,7 @@ public class UserPermissionsService extends GwtService implements UserPermission
     public void saveUserPermissions(
             String userId, 
             String role,
-            List<String> vendorPermissionList,
+            List<String> companyPermissionList,
             AsyncCallback<String> asyncCallback) 
     {
         String url = getEncodedUrl(userId, role);
@@ -55,7 +55,7 @@ public class UserPermissionsService extends GwtService implements UserPermission
         RequestBuilder builder = createRequestBuilder(RequestBuilder.PUT, url);
 
         builder.setHeader("Content-Type", "application/xml");
-        builder.setRequestData(xmlParser.createXml(vendorPermissionList)); 
+        builder.setRequestData(xmlParser.createXml(companyPermissionList)); 
         builder.setCallback(requestCallback);
         
         try {

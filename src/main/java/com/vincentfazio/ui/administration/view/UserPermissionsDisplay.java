@@ -3,7 +3,7 @@ package com.vincentfazio.ui.administration.view;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.vincentfazio.ui.bean.VendorPermissionBean;
+import com.vincentfazio.ui.bean.CompanyPermissionBean;
 import com.vincentfazio.ui.view.Display;
 
 
@@ -17,15 +17,15 @@ public interface UserPermissionsDisplay extends Display {
 
     public String getUserId();
 
-    void setVendorsPermissionList(List<VendorPermissionBean> vendorPermissions);
-    List<VendorPermissionBean> getVendorsPermissionList();
+    void setCompaniesPermissionList(List<CompanyPermissionBean> companyPermissions);
+    List<CompanyPermissionBean> getCompaniesPermissionList();
 
     boolean hasUnsavedChanges();
     void setHasUnsavedChanges(boolean hasUnsavedChanges);
 
-    void setVendorList(ArrayList<String> vendors);
-    ArrayList<String> getVendorList();
+    void setCompanyList(ArrayList<String> companies);
+    ArrayList<String> getCompanyList();
     
-    boolean isVendorListLoaded();
+    boolean isCompanyListLoaded();
 
 }

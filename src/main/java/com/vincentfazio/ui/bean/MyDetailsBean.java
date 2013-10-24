@@ -9,7 +9,7 @@ public class MyDetailsBean {
     private String email;
     private String phone;
     private String title;
-    private List<String> vendorAccess;
+    private List<String> companyAccess;
     
     public String getName() {
         return name;
@@ -41,10 +41,10 @@ public class MyDetailsBean {
     public void setTitle(String title) {
         this.title = title;
     }
-    public List<String> getVendorAccess() {
-        return vendorAccess;
+    public List<String> getCompanyAccess() {
+        return companyAccess;
     }
-    public void setVendorAccess(List<String> vendorAccess) {
-        this.vendorAccess = vendorAccess;
+    public void setCompanyAccess(List<String> companyAccess) {
+        this.companyAccess = companyAccess;
     }
 }

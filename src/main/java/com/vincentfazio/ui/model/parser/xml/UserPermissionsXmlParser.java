@@ -15,36 +15,36 @@ public class UserPermissionsXmlParser extends XmlParser<List<String>> {
         // parse the XML document into a DOM
         Document messageDom = XMLParser.parse(responseXml);
 
-        NodeList vendorList = messageDom.getElementsByTagName("vendors");
-        ArrayList<String> vendors = new ArrayList<String>();
+        NodeList companyList = messageDom.getElementsByTagName("companies");
+        ArrayList<String> companies = new ArrayList<String>();
         
-        if (vendorList.getLength() > 0) {
-            NodeList vendorNodes = ((Element)vendorList.item(0)).getElementsByTagName("name");
+        if (companyList.getLength() > 0) {
+            NodeList companyNodes = ((Element)companyList.item(0)).getElementsByTagName("name");
     
-            for (int i=0; i < vendorNodes.getLength(); ++i) {
-                Node vendorNode = vendorNodes.item(i); 
-                Node vendorNameNode = vendorNode.getFirstChild();               
-                if (null != vendorNameNode) {
-                    vendors.add(vendorNameNode.getNodeValue());
+            for (int i=0; i < companyNodes.getLength(); ++i) {
+                Node companyNode = companyNodes.item(i); 
+                Node companyNameNode = companyNode.getFirstChild();               
+                if (null != companyNameNode) {
+                    companies.add(companyNameNode.getNodeValue());
                 }
             }
         }
-        return vendors;
+        return companies;
     }
 
-    public String createXml(List<String> vendors) {
+    public String createXml(List<String> companies) {
         StringBuffer xmlBuffer = new StringBuffer("<role>");
-        xmlBuffer.append("<vendors>");
-        for (String vendorName: vendors) {
-            xmlBuffer.append(createVendorNameXml(vendorName));
+        xmlBuffer.append("<companies>");
+        for (String companyName: companies) {
+            xmlBuffer.append(createCompanyNameXml(companyName));
         }
-        xmlBuffer.append("</vendors>");
+        xmlBuffer.append("</companies>");
         xmlBuffer.append("</role>");
         return xmlBuffer.toString();
     }
 
-    private String createVendorNameXml(String vendorName) {
-        return createXmlField("name", vendorName);
+    private String createCompanyNameXml(String companyName) {
+        return createXmlField("name", companyName);
     }
 
 }

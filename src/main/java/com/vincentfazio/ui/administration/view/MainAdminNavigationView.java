@@ -9,7 +9,7 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.StackLayoutPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.vincentfazio.ui.administration.activity.UserListActivity;
-import com.vincentfazio.ui.administration.activity.VendorListActivity;
+import com.vincentfazio.ui.administration.activity.CompanyListActivity;
 import com.vincentfazio.ui.administration.global.GwtAdminGlobals;
 
 public class MainAdminNavigationView extends Composite implements MainAdminNavigationDisplay {
@@ -28,7 +28,7 @@ public class MainAdminNavigationView extends Composite implements MainAdminNavig
     UserListView userList;
     
     @UiField
-    VendorListView vendorList;
+    CompanyListView companyList;
     
     
     public MainAdminNavigationView() {
@@ -40,8 +40,8 @@ public class MainAdminNavigationView extends Composite implements MainAdminNavig
             public void onSelection(SelectionEvent<Integer> event) {
                 Widget selectedPanel = adminMenu.getWidget(event.getSelectedItem());
                 
-                if (selectedPanel instanceof VendorListDisplay) {
-                    new VendorListActivity(GwtAdminGlobals.getInstance(), true).start(null, null);
+                if (selectedPanel instanceof CompanyListDisplay) {
+                    new CompanyListActivity(GwtAdminGlobals.getInstance(), true).start(null, null);
                 } else if (selectedPanel instanceof UserListDisplay) {
                     new UserListActivity(GwtAdminGlobals.getInstance(), true).start(null, null);
                 }
@@ -59,8 +59,8 @@ public class MainAdminNavigationView extends Composite implements MainAdminNavig
             case Users:
                 adminMenu.showWidget(userList, false);
                 break;
-            case Vendors:
-                adminMenu.showWidget(vendorList, false);
+            case Companies:
+                adminMenu.showWidget(companyList, false);
                 break;       
         }
     }

@@ -11,7 +11,7 @@ public interface UserPermissionsModel extends Model {
     void saveUserPermissions(
             String userId, 
             String role,
-            List<String> vendorPermissionList,
+            List<String> companyPermissionList,
             AsyncCallback<String> asyncCallback);
 
 }

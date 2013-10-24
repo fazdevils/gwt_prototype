@@ -25,18 +25,18 @@ public class MyDetailsXmlParser extends XmlParser<MyDetailsBean> {
         userDetailsBean.setPhone(extractField(userElement, "telephonenumber"));
         userDetailsBean.setTitle(extractField(userElement, "title"));
         
-        ArrayList<String> vendorAccess = new ArrayList<String>();
-        NodeList vendorNodeList = userElement.getElementsByTagName("vendors");
-        if (vendorNodeList.getLength() > 0) {
-            Element vendorListElement = (Element) vendorNodeList.item(0);
-            NodeList vendorNames = vendorListElement.getElementsByTagName("name");
-            for (int i=0; i < vendorNames.getLength(); ++i) {
-                Element vendorNameElement = (Element) vendorNames.item(i);
-                Text vendorName = (Text) vendorNameElement.getFirstChild();
-                vendorAccess.add(vendorName.getData());
+        ArrayList<String> companyAccess = new ArrayList<String>();
+        NodeList companyNodeList = userElement.getElementsByTagName("companies");
+        if (companyNodeList.getLength() > 0) {
+            Element companyListElement = (Element) companyNodeList.item(0);
+            NodeList companyNames = companyListElement.getElementsByTagName("name");
+            for (int i=0; i < companyNames.getLength(); ++i) {
+                Element companyNameElement = (Element) companyNames.item(i);
+                Text companyName = (Text) companyNameElement.getFirstChild();
+                companyAccess.add(companyName.getData());
             }
         }
-        userDetailsBean.setVendorAccess(vendorAccess);
+        userDetailsBean.setCompanyAccess(companyAccess);
         
         return userDetailsBean;
     }

@@ -25,13 +25,13 @@ public class UserPermissionsXmlParserTest extends GWTTestCase {
         role = xmlParser.parse("<role></role>");
         assertEquals(0, role.size());
 
-        role = xmlParser.parse("<role><vendors><name></name></vendors></role>");
+        role = xmlParser.parse("<role><companies><name></name></companies></role>");
         assertEquals(0, role.size());
 
-        role = xmlParser.parse("<role><vendors><name>vendor1</name></vendors></role>");
+        role = xmlParser.parse("<role><companies><name>company1</name></companies></role>");
         assertEquals(1, role.size());
 
-        role = xmlParser.parse("<role><vendors><name>vendor1</name><name>vendor2</name></vendors></role>");
+        role = xmlParser.parse("<role><companies><name>company1</name><name>company2</name></companies></role>");
         assertEquals(2, role.size());
 	}
  
@@ -41,15 +41,15 @@ public class UserPermissionsXmlParserTest extends GWTTestCase {
         
         ArrayList<String> userPermissions = new ArrayList<String>();
         
-        String userPermissionsXml = "<role><vendors></vendors></role>";
+        String userPermissionsXml = "<role><companies></companies></role>";
         assertEquals(userPermissionsXml, xmlParser.createXml(userPermissions));
 
-        userPermissions.add("vendor1");
-        userPermissionsXml = "<role><vendors><name>vendor1</name></vendors></role>";
+        userPermissions.add("company1");
+        userPermissionsXml = "<role><companies><name>company1</name></companies></role>";
         assertEquals(userPermissionsXml, xmlParser.createXml(userPermissions));
 
-        userPermissions.add("vendor2");
-        userPermissionsXml = "<role><vendors><name>vendor1</name><name>vendor2</name></vendors></role>";
+        userPermissions.add("company2");
+        userPermissionsXml = "<role><companies><name>company1</name><name>company2</name></companies></role>";
         assertEquals(userPermissionsXml, xmlParser.createXml(userPermissions));
 
     }

@@ -14,17 +14,17 @@ public class UserPermissionsMockModel implements UserPermissionsModel {
     
     @Override
     public void getUserPermissions(String userId, String role, AsyncCallback<List<String>> asyncCallback) {
-        asyncCallback.onSuccess(getVendorPermissionList(userId, role));
+        asyncCallback.onSuccess(getCompanyPermissionList(userId, role));
     }
 
-    private List<String> getVendorPermissionList(String userId, String role) {
+    private List<String> getCompanyPermissionList(String userId, String role) {
         String key = getKey(userId, role);
         List<String> permissions = mockPermissionsMap.get(key);
         if (null == permissions) {
             permissions = new ArrayList<String>();
             for (int i=0; i < 4000; ++i) {
                 if ((i%5) == 3) {
-                    permissions.add("Vendor " + (i+1));
+                    permissions.add("Company " + (i+1));
                 }
             }
             mockPermissionsMap.put(key, permissions);
@@ -41,18 +41,18 @@ public class UserPermissionsMockModel implements UserPermissionsModel {
     public void saveUserPermissions(
             String userId, 
             String role,
-            List<String> vendorsPermissionList,
+            List<String> companiesPermissionList,
             AsyncCallback<String> asyncCallback) 
     {
-        mockPermissionsMap.put(getKey(userId, role), copyList(vendorsPermissionList));        
+        mockPermissionsMap.put(getKey(userId, role), copyList(companiesPermissionList));        
         asyncCallback.onSuccess("Saved");  
     }
 
     private List<String> copyList(
-            List<String> vendorsPermissionList) {
+            List<String> companiesPermissionList) {
         
         List<String> copy = new ArrayList<String>();
-        for (String bean: vendorsPermissionList) {
+        for (String bean: companiesPermissionList) {
             copy.add(bean);
         }
         return copy;

@@ -23,8 +23,8 @@ public class TaskService extends GwtService implements TaskModel {
     public TaskService(GwtGlobals globals) {
         super();
         this.xmlParser = new TaskListXmlParser();
-        openTaskUrl = globals.getServiceBaseUrl() + "/" + globals.getRole() + "/vendors/open_tasks";
-        completedTaskUrl = globals.getServiceBaseUrl() + "/" + globals.getRole() + "/vendors/completed_tasks";
+        openTaskUrl = globals.getServiceBaseUrl() + "/" + globals.getRole() + "/companies/open_tasks";
+        completedTaskUrl = globals.getServiceBaseUrl() + "/" + globals.getRole() + "/companies/completed_tasks";
         this.globals = globals;
     }
 
@@ -82,7 +82,7 @@ public class TaskService extends GwtService implements TaskModel {
 
 
 	@Override
-	public void updateDocumentationTask(String vendorName, Collection<DocumentationBean> documents) {
+	public void updateDocumentationTask(String companyName, Collection<DocumentationBean> documents) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -156,10 +156,10 @@ public class UserListView extends Composite implements UserListDisplay, DataProv
 
         // no user has been selected - so pick one
         if (selectedUserId.isEmpty()) {    
-            List<String> vendorList = userSearchBox.getUnfilteredList();
-            if (!vendorList.isEmpty()) {
+            List<String> companyList = userSearchBox.getUnfilteredList();
+            if (!companyList.isEmpty()) {
                 refreshUserDetail = true;
-                selectedUserId = vendorList.get(0);
+                selectedUserId = companyList.get(0);
             }
         }
         

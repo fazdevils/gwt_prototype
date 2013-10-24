@@ -27,8 +27,8 @@ public class UserDetailsXmlParser extends XmlParser<UserDetailsBean> {
             String role = extractField((Element)roleNodes.item(i), "name");
             if (role.equalsIgnoreCase("customer")) {
                 userDetailsBean.setCustomer(true);
-            } else if (role.equalsIgnoreCase("vendor")) {
-                userDetailsBean.setVendor(true);
+            } else if (role.equalsIgnoreCase("company")) {
+                userDetailsBean.setCompany(true);
             } else if (role.equalsIgnoreCase("admin")) {
                 userDetailsBean.setAdministrator(true);
             }
@@ -67,7 +67,7 @@ public class UserDetailsXmlParser extends XmlParser<UserDetailsBean> {
         xmlBuffer.append(createXmlField("email", userDetailsBean.getEmail()));
         xmlBuffer.append(createXmlField("telephonenumber", userDetailsBean.getPhone()));
         xmlBuffer.append(createXmlField("title", userDetailsBean.getTitle()));
-        if (userDetailsBean.isAdministrator() || userDetailsBean.isCustomer() || userDetailsBean.isVendor()) {
+        if (userDetailsBean.isAdministrator() || userDetailsBean.isCustomer() || userDetailsBean.isCompany()) {
             xmlBuffer.append("<roles>");
             if (userDetailsBean.isAdministrator()) {
                 xmlBuffer.append(createRoleXml("Admin"));
@@ -75,8 +75,8 @@ public class UserDetailsXmlParser extends XmlParser<UserDetailsBean> {
             if (userDetailsBean.isCustomer()) {
                 xmlBuffer.append(createRoleXml("Customer"));
             }
-            if (userDetailsBean.isVendor()) {
-                xmlBuffer.append(createRoleXml("Vendor"));
+            if (userDetailsBean.isCompany()) {
+                xmlBuffer.append(createRoleXml("Company"));
             }
             xmlBuffer.append("</roles>");
         }

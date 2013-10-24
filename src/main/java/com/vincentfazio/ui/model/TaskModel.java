@@ -15,5 +15,5 @@ public interface TaskModel extends Model {
 
     void getCompletedTasks(AsyncCallback<SortedSet<TaskBean>> asyncCallback);
   
-    void updateDocumentationTask(String vendorName, Collection<DocumentationBean> documents);
+    void updateDocumentationTask(String companyName, Collection<DocumentationBean> documents);
 }

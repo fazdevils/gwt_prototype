@@ -12,10 +12,10 @@ import com.vincentfazio.ui.administration.global.GwtAdminGlobals;
 import com.vincentfazio.ui.administration.view.UserListDisplay;
 import com.vincentfazio.ui.administration.view.UserPermissionsDisplay;
 import com.vincentfazio.ui.bean.ErrorBean;
-import com.vincentfazio.ui.bean.VendorPermissionBean;
+import com.vincentfazio.ui.bean.CompanyPermissionBean;
 import com.vincentfazio.ui.global.Globals;
 import com.vincentfazio.ui.model.UserPermissionsModel;
-import com.vincentfazio.ui.model.VendorListModel;
+import com.vincentfazio.ui.model.CompanyListModel;
 import com.vincentfazio.ui.view.ErrorDisplay;
 
 public class UserPermissionsActivity extends GwtActivity {
@@ -34,15 +34,15 @@ public class UserPermissionsActivity extends GwtActivity {
     @Override
     public void start(AcceptsOneWidget panel, EventBus eventBus) {
         UserPermissionsDisplay permissionsDisplay = (UserPermissionsDisplay) globals.getDisplay(UserPermissionsDisplay.class);
-        if (permissionsDisplay.isVendorListLoaded()) {  
+        if (permissionsDisplay.isCompanyListLoaded()) {  
             loadUserPermissionsData();            
         } else {
-            VendorListModel vendorListModel = (VendorListModel) globals.getModel(VendorListModel.class);
-            vendorListModel.getVendorList(  // normally this would get loaded when the vendor list display is loaded
+            CompanyListModel companyListModel = (CompanyListModel) globals.getModel(CompanyListModel.class);
+            companyListModel.getCompanyList(  // normally this would get loaded when the company list display is loaded
                     new AsyncCallback<ArrayList<String>>() {
                         public void onSuccess(ArrayList<String> result) {
                             UserPermissionsDisplay permissionsDisplay = (UserPermissionsDisplay) globals.getDisplay(UserPermissionsDisplay.class);
-                            permissionsDisplay.setVendorList(result);
+                            permissionsDisplay.setCompanyList(result);
                             loadUserPermissionsData();
                         }
                         public void onFailure(Throwable caught) {
@@ -65,7 +65,7 @@ public class UserPermissionsActivity extends GwtActivity {
                             UserPermissionsDisplay permissionsDisplay = (UserPermissionsDisplay) globals.getDisplay(UserPermissionsDisplay.class);
                             permissionsDisplay.setUserId(userId);
                             permissionsDisplay.setUserRole(role);
-                            permissionsDisplay.setVendorsPermissionList(getUserPermissionsList(permissionsDisplay.getVendorList(), result));
+                            permissionsDisplay.setCompaniesPermissionList(getUserPermissionsList(permissionsDisplay.getCompanyList(), result));
                             
                             // initialize the user list if it isn't
                             UserListDisplay userListDisplay = (UserListDisplay) globals.getDisplay(UserListDisplay.class);
@@ -81,15 +81,15 @@ public class UserPermissionsActivity extends GwtActivity {
                             errorDisplay.handleError(new ErrorBean(caught.getMessage(), caught));
                         }
                         
-                        private List<VendorPermissionBean> getUserPermissionsList(List<String> vendorList, List<String> vendorAccess) {
-                            ArrayList<VendorPermissionBean> userPermissionsList = new ArrayList<VendorPermissionBean>();
-                            TreeSet<String> vendorAccessSet = new TreeSet<String>(vendorAccess);
+                        private List<CompanyPermissionBean> getUserPermissionsList(List<String> companyList, List<String> companyAccess) {
+                            ArrayList<CompanyPermissionBean> userPermissionsList = new ArrayList<CompanyPermissionBean>();
+                            TreeSet<String> companyAccessSet = new TreeSet<String>(companyAccess);
                             
-                            for (String vendorName: vendorList) {
-                                VendorPermissionBean vendorPermissionBean = new VendorPermissionBean();
-                                vendorPermissionBean.setVendorName(vendorName);
-                                vendorPermissionBean.setAccess(vendorAccessSet.contains(vendorName));
-                                userPermissionsList.add(vendorPermissionBean);
+                            for (String companyName: companyList) {
+                                CompanyPermissionBean companyPermissionBean = new CompanyPermissionBean();
+                                companyPermissionBean.setCompanyName(companyName);
+                                companyPermissionBean.setAccess(companyAccessSet.contains(companyName));
+                                userPermissionsList.add(companyPermissionBean);
                             }
                             
                             return userPermissionsList;
@@ -103,7 +103,7 @@ public class UserPermissionsActivity extends GwtActivity {
     public String mayStop() {
         UserPermissionsDisplay permissionsDisplay = (UserPermissionsDisplay) globals.getDisplay(UserPermissionsDisplay.class);
         if (permissionsDisplay.hasUnsavedChanges()) {
-            new UserPermissionsSaveActivity(GwtAdminGlobals.getInstance(), userId, role, permissionsDisplay.getVendorsPermissionList()).start(null, null);
+            new UserPermissionsSaveActivity(GwtAdminGlobals.getInstance(), userId, role, permissionsDisplay.getCompaniesPermissionList()).start(null, null);
         }
         return null;
     }

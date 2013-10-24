@@ -56,7 +56,7 @@ public class AdminHomeView extends Composite implements AdminHomeDisplay {
                 
                 /**
                  * There a bug in IE where, when going directly to a user or 
-                 * supplier detail page, the stack layout panel does not seem to
+                 * company detail page, the stack layout panel does not seem to
                  * draw correctly for some reason.  Calling forceLayout seems 
                  * to fix that. 
                  */

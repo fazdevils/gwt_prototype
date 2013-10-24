@@ -9,7 +9,7 @@ import com.vincentfazio.ui.model.parser.xml.MyDetailsXmlParser;
 public class MyDetailsXmlParserTest extends GWTTestCase {
 
     @Test
-    public void testParseVendors() {
+    public void testParseCompanies() {
         MyDetailsXmlParser xmlParser = new MyDetailsXmlParser();
         MyDetailsBean myDetails;
         
@@ -20,18 +20,18 @@ public class MyDetailsXmlParserTest extends GWTTestCase {
                         "<firstname>Dave</firstname>" +
                         "<roles>" +
                             "<role>" +
-                                "<name>Vendor</name>" +
-                                "<vendors>" +
+                                "<name>Company</name>" +
+                                "<companies>" +
                                     "<name>Dell</name>" +
                                     "<name>Service Master Building Maintenance</name>" +
-                                "</vendors>" +
+                                "</companies>" +
                             "</role>" +
                         "</roles>" +
         		"</contact>");
         assertEquals("Dave Newell", myDetails.getName());
         assertEquals("Customer1", myDetails.getUserId());
-        assertEquals(2, myDetails.getVendorAccess().size());
-        assertEquals("Dell", myDetails.getVendorAccess().get(0));
+        assertEquals(2, myDetails.getCompanyAccess().size());
+        assertEquals("Dell", myDetails.getCompanyAccess().get(0));
 	}
  
     @Test
@@ -60,7 +60,7 @@ public class MyDetailsXmlParserTest extends GWTTestCase {
             "</contact>");
         assertEquals("Vinnie Fazio", myDetails.getName());
         assertEquals("vfazio", myDetails.getUserId());
-        assertEquals(0, myDetails.getVendorAccess().size());
+        assertEquals(0, myDetails.getCompanyAccess().size());
     }
 
     @Override

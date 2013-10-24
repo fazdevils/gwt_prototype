@@ -25,7 +25,7 @@ public class UserMockModel implements UserDetailsModel, UserListModel {
             user.setName("Test User");
             user.setAdministrator(false);
             user.setCustomer(false);
-            user.setVendor(false);
+            user.setCompany(false);
             mockUserMap.put(userId, user);
         }
         
@@ -36,7 +36,7 @@ public class UserMockModel implements UserDetailsModel, UserListModel {
         user.setName("Test User");
         user.setAdministrator(false);
         user.setCustomer(false);
-        user.setVendor(false);
+        user.setCompany(false);
         mockUserMap.put(userId, user);
 
     }
@@ -85,8 +85,8 @@ public class UserMockModel implements UserDetailsModel, UserListModel {
                 if (userDetails.isCustomer()) {
                     users.add(userDetails.getUserId());
                 }
-            } else if (role.equalsIgnoreCase("vendor")) {
-                if (userDetails.isVendor()) {
+            } else if (role.equalsIgnoreCase("company")) {
+                if (userDetails.isCompany()) {
                     users.add(userDetails.getUserId());
                 }
             } else if (role.equalsIgnoreCase("admin")) {
@@ -115,7 +115,7 @@ public class UserMockModel implements UserDetailsModel, UserListModel {
         copy.setUserId(bean.getUserId());
         copy.setAdministrator(bean.isAdministrator());
         copy.setCustomer(bean.isCustomer());
-        copy.setVendor(bean.isVendor());
+        copy.setCompany(bean.isCompany());
         return copy;
     }
 

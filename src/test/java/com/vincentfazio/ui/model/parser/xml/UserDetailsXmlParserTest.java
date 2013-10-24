@@ -36,7 +36,7 @@ public class UserDetailsXmlParserTest extends GWTTestCase {
         assertNull(user.getTitle());
         assertFalse(user.isAdministrator());
         assertFalse(user.isCustomer());
-        assertFalse(user.isVendor());
+        assertFalse(user.isCompany());
 
         user = xmlParser.parse(
         		"<contact>" +
@@ -48,7 +48,7 @@ public class UserDetailsXmlParserTest extends GWTTestCase {
                    "<title>title1</title>" +
                    "<roles>" +
                        "<role><name>Customer</name></role>" +
-                       "<role><name>Vendor</name></role>" +
+                       "<role><name>Company</name></role>" +
                        "<role><name>Admin</name></role>" +
                    "</roles>" +
         		"</contact>");
@@ -59,7 +59,7 @@ public class UserDetailsXmlParserTest extends GWTTestCase {
         assertEquals("title1", user.getTitle());
         assertTrue(user.isAdministrator());
         assertTrue(user.isCustomer());
-        assertTrue(user.isVendor());
+        assertTrue(user.isCompany());
 	}
 
     @Test
@@ -81,7 +81,7 @@ public class UserDetailsXmlParserTest extends GWTTestCase {
         user.setTitle("title1");
         user.setAdministrator(true);
         user.setCustomer(true);
-        user.setVendor(true);
+        user.setCompany(true);
         userXml = 
                 "<contact>" +
                         "<user-id>user1</user-id>" +
@@ -93,7 +93,7 @@ public class UserDetailsXmlParserTest extends GWTTestCase {
                         "<roles>" +
                             "<role><name>Admin</name></role>" +
                             "<role><name>Customer</name></role>" +
-                            "<role><name>Vendor</name></role>" +
+                            "<role><name>Company</name></role>" +
                         "</roles>" +
                      "</contact>";
         assertEquals(userXml, xmlParser.createXml(user));

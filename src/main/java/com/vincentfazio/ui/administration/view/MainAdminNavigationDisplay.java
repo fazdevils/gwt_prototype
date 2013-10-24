@@ -5,7 +5,7 @@ import com.vincentfazio.ui.view.Display;
 public interface MainAdminNavigationDisplay extends Display {
     
     public static enum MainAdminNavigationEnum {
-        Vendors,
+        Companies,
         Users;
     }
 

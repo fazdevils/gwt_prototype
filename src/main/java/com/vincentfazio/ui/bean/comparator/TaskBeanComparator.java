@@ -25,7 +25,7 @@ public class TaskBeanComparator implements Comparator<TaskBean> {
             return compareVal;
         }
     
-        compareVal = task1.getVendor().compareTo(task2.getVendor());
+        compareVal = task1.getCompany().compareTo(task2.getCompany());
         if (0 != compareVal) {
             return compareVal;
         }

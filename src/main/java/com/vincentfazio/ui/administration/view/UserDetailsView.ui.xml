@@ -47,15 +47,15 @@
 		                    <g:HTMLPanel addStyleNames="gwt-form-group-area">
 		                        <g:HTMLPanel addStyleNames="gwt-form-line">
 		                            <g:CheckBox addStyleNames="gwt-form-checkbox" ui:field="adminCheckbox">Administrator</g:CheckBox>
-		                            <g:Anchor addStyleNames="gwt-form-link" ui:field="adminLink">Manage Supplier Access</g:Anchor>
+		                            <g:Anchor addStyleNames="gwt-form-link" ui:field="adminLink">Manage Company Access</g:Anchor>
 		                        </g:HTMLPanel>
 		                        <g:HTMLPanel addStyleNames="gwt-form-line">
-		                            <g:CheckBox addStyleNames="gwt-form-checkbox" ui:field="customerCheckbox">Customer</g:CheckBox>
-		                            <g:Anchor addStyleNames="gwt-form-link" ui:field="customerLink">Manage Supplier Access</g:Anchor>
+		                            <g:CheckBox addStyleNames="gwt-form-checkbox" ui:field="customerCheckbox">Customer Admin</g:CheckBox>
+		                            <g:Anchor addStyleNames="gwt-form-link" ui:field="customerAdminLink">Manage Company Access</g:Anchor>
 		                        </g:HTMLPanel>
 		                        <g:HTMLPanel addStyleNames="gwt-form-line">
-		                            <g:CheckBox addStyleNames="gwt-form-checkbox" ui:field="vendorCheckbox">Supplier</g:CheckBox>
-		                            <g:Anchor addStyleNames="gwt-form-link" ui:field="vendorLink">Manage Supplier Access</g:Anchor>
+		                            <g:CheckBox addStyleNames="gwt-form-checkbox" ui:field="companyCheckbox">Customer</g:CheckBox>
+		                            <g:Anchor addStyleNames="gwt-form-link" ui:field="customerAccessLink">Manage Company Access</g:Anchor>
 		                        </g:HTMLPanel>
 		                    </g:HTMLPanel>
 		                </g:HTMLPanel>

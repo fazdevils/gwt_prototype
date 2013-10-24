@@ -9,7 +9,7 @@ public class UserDetailsBean {
     private String title;
     private boolean isAdministrator;
     private boolean isCustomer;
-    private boolean isVendor;
+    private boolean isCompany;
     
     public String getName() {
         return name;
@@ -53,10 +53,10 @@ public class UserDetailsBean {
     public void setCustomer(boolean isCustomer) {
         this.isCustomer = isCustomer;
     }
-    public boolean isVendor() {
-        return isVendor;
+    public boolean isCompany() {
+        return isCompany;
     }
-    public void setVendor(boolean isVendor) {
-        this.isVendor = isVendor;
+    public void setCompany(boolean isCompany) {
+        this.isCompany = isCompany;
     }
 }

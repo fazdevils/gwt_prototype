@@ -471,7 +471,7 @@ public class SecuritySurveyXmlParserTest extends GWTTestCase {
                         "</survey-question>" +
                         "<survey-question>" +
                           "<abbreviation>12.6.1</abbreviation>" +
-                          "<question-text>Does your organization have a process to monitor technical vulnerabilities (based on your organization&apos;s system / information asset list) by regularly reviewing warnings and information published by system vendors and credible technical sources?</question-text>" +
+                          "<question-text>Does your organization have a process to monitor technical vulnerabilities (based on your organization&apos;s system / information asset list) by regularly reviewing warnings and information published by system companies and credible technical sources?</question-text>" +
                           "<question-set>" +
                             "<name>Question Set</name>" +
                           "</question-set>" +

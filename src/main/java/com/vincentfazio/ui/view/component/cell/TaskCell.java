@@ -24,7 +24,7 @@ public class TaskCell extends AbstractCell<TaskBean> {
         sb.appendHtmlConstant("<div class=\"-task-item\">");
 
         sb.appendHtmlConstant("<div class=\"task-description\">");
-		sb.append(SafeHtmlUtils.fromString(taskType.getDescription() + " for " + task.getVendor()));
+		sb.append(SafeHtmlUtils.fromString(taskType.getDescription() + " for " + task.getCompany()));
         sb.appendHtmlConstant("</div>");
 
         DateTimeFormat dateFormat = DateTimeFormat.getFormat("MMM dd, yyyy");

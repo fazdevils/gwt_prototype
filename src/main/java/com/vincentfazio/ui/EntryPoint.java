@@ -22,10 +22,10 @@ import com.vincentfazio.ui.administration.global.GwtAdminGlobals;
 import com.vincentfazio.ui.administration.view.AdminHomeView;
 import com.vincentfazio.ui.bean.ErrorBean;
 import com.vincentfazio.ui.global.GwtGlobals;
-import com.vincentfazio.ui.vendor.VendorActivityMapper;
-import com.vincentfazio.ui.vendor.VendorPlaceHistoryMapper;
-import com.vincentfazio.ui.vendor.global.GwtVendorGlobals;
-import com.vincentfazio.ui.vendor.view.VendorHomeView;
+import com.vincentfazio.ui.survey.SurveyActivityMapper;
+import com.vincentfazio.ui.survey.SurveyPlaceHistoryMapper;
+import com.vincentfazio.ui.survey.global.GwtSurveyGlobals;
+import com.vincentfazio.ui.survey.view.CompanyHomeView;
 import com.vincentfazio.ui.view.ErrorDisplay;
 import com.vincentfazio.ui.view.FooterView;
 import com.vincentfazio.ui.view.HeaderView;
@@ -75,8 +75,8 @@ public class EntryPoint implements com.google.gwt.core.client.EntryPoint {
             case Admin:
                 mainPanel = createAdminInterface();
                 break;
-            case Vendor:
-                mainPanel = createVendorInterface();
+            case Company:
+                mainPanel = createCompanyInterface();
                 break;
         }
         return mainPanel;
@@ -88,8 +88,8 @@ public class EntryPoint implements com.google.gwt.core.client.EntryPoint {
             case Admin:
                 globals = GwtAdminGlobals.getInstance();
                 break;
-            case Vendor:
-                globals = GwtVendorGlobals.getInstance();
+            case Company:
+                globals = GwtSurveyGlobals.getInstance();
                 break;
         }
         return globals;
@@ -99,8 +99,8 @@ public class EntryPoint implements com.google.gwt.core.client.EntryPoint {
         if (null != RootPanel.get("admin")) {
             return ApplicationInstance.Admin;
         }
-        if (null != RootPanel.get("vendor")) {
-            return ApplicationInstance.Vendor;
+        if (null != RootPanel.get("company")) {
+            return ApplicationInstance.Company;
         }
         return null;
     }
@@ -128,18 +128,18 @@ public class EntryPoint implements com.google.gwt.core.client.EntryPoint {
         
     }
 
-    private Panel createVendorInterface() {
+    private Panel createCompanyInterface() {
         SimpleLayoutPanel basePanel = new SimpleLayoutPanel();
-        basePanel.add(new VendorHomeView());
+        basePanel.add(new CompanyHomeView());
                
         // Start ActivityManager for the main widget with our ActivityMapper
-        GwtGlobals globals = GwtVendorGlobals.getInstance();
-        ActivityMapper activityMapper = new VendorActivityMapper(globals);
+        GwtGlobals globals = GwtSurveyGlobals.getInstance();
+        ActivityMapper activityMapper = new SurveyActivityMapper(globals);
         ActivityManager activityManager = new ActivityManager(activityMapper, globals.getEventbus());
         activityManager.setDisplay(basePanel);
     
         // Start PlaceHistoryHandler with our PlaceHistoryMapper
-        VendorPlaceHistoryMapper historyMapper= GWT.create(VendorPlaceHistoryMapper.class);
+        SurveyPlaceHistoryMapper historyMapper= GWT.create(SurveyPlaceHistoryMapper.class);
         PlaceHistoryHandler historyHandler = new PlaceHistoryHandler(historyMapper);
         Place defaultPlace = globals.getDefaultPlace();
         globals.registerDefaultPlace(historyHandler, defaultPlace);
@@ -152,7 +152,7 @@ public class EntryPoint implements com.google.gwt.core.client.EntryPoint {
     
     private enum ApplicationInstance {
         Admin,
-        Vendor;
+        Company;
     }
     
     private Panel createHeader(GwtGlobals globals) {

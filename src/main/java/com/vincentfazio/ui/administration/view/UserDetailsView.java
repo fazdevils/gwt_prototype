@@ -85,19 +85,19 @@ public class UserDetailsView extends Composite implements UserDetailsDisplay {
             }
         });
         
-        vendorCheckbox.addClickHandler(new ClickHandler() {
+        companyCheckbox.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
-                setVendorStyle();
+                setCompanyStyle();
                 setHasUnsavedChanges(true);
             }
         });
         
-        vendorLink.addClickHandler(new ClickHandler() {     
+        customerAccessLink.addClickHandler(new ClickHandler() {     
             @Override
             public void onClick(ClickEvent event) {
                 if (!hasChanges) {
-                    GwtAdminGlobals.getInstance().gotoPlace(new UserPermissionsPlace(userId.getText(), "Vendor"));
+                    GwtAdminGlobals.getInstance().gotoPlace(new UserPermissionsPlace(userId.getText(), "Customer"));
                 }
             }
         });
@@ -110,11 +110,11 @@ public class UserDetailsView extends Composite implements UserDetailsDisplay {
             }
         });
         
-        customerLink.addClickHandler(new ClickHandler() {     
+        customerAdminLink.addClickHandler(new ClickHandler() {     
             @Override
             public void onClick(ClickEvent event) {
                 if (!hasChanges) {
-                    GwtAdminGlobals.getInstance().gotoPlace(new UserPermissionsPlace(userId.getText(), "Customer"));
+                    GwtAdminGlobals.getInstance().gotoPlace(new UserPermissionsPlace(userId.getText(), "Customer Admin"));
                 }
             }
         });
@@ -185,13 +185,13 @@ public class UserDetailsView extends Composite implements UserDetailsDisplay {
     CheckBox customerCheckbox;
     
     @UiField
-    Anchor customerLink;
+    Anchor customerAdminLink;
     
     @UiField
-    CheckBox vendorCheckbox;
+    CheckBox companyCheckbox;
     
     @UiField
-    Anchor vendorLink;
+    Anchor customerAccessLink;
     
     @UiField
     DivElement saveDiv;
@@ -223,7 +223,7 @@ public class UserDetailsView extends Composite implements UserDetailsDisplay {
         setUserId(user.getUserId());
         setUserIsAdministrator(user.isAdministrator());
         setUserIsCustomer(user.isCustomer());
-        setUserIsVendor(user.isVendor());
+        setUserIsCompany(user.isCompany());
         setUserTitle(user.getTitle());            
     }
 
@@ -238,7 +238,7 @@ public class UserDetailsView extends Composite implements UserDetailsDisplay {
         user.setPhone(getPhone());
         user.setTitle(getUserTitle());
         user.setUserId(getUserId());
-        user.setVendor(getUserIsVendor());
+        user.setCompany(getUserIsCompany());
         
         return user;
     }
@@ -292,8 +292,8 @@ public class UserDetailsView extends Composite implements UserDetailsDisplay {
         return this.customerCheckbox.getValue();
     }
     
-    private boolean getUserIsVendor() {
-        return this.vendorCheckbox.getValue();
+    private boolean getUserIsCompany() {
+        return this.companyCheckbox.getValue();
     }
 
     private void setUserIsAdministrator(boolean hasAccess) {
@@ -306,9 +306,9 @@ public class UserDetailsView extends Composite implements UserDetailsDisplay {
         setCustomerStyle();
     }
     
-    private void setUserIsVendor(boolean hasAccess) {
-        this.vendorCheckbox.setValue(hasAccess);
-        setVendorStyle();
+    private void setUserIsCompany(boolean hasAccess) {
+        this.companyCheckbox.setValue(hasAccess);
+        setCompanyStyle();
     }
 
     private void resetDisplay() {
@@ -318,20 +318,20 @@ public class UserDetailsView extends Composite implements UserDetailsDisplay {
         setUserId(null);
         setUserIsAdministrator(false);
         setUserIsCustomer(false);
-        setUserIsVendor(false);
+        setUserIsCompany(false);
         setUserTitle(null);
 
         setHasUnsavedChanges(false);
     }
 
     private void setCustomerStyle() {
-        customerLink.setVisible(getUserIsCustomer());
+        customerAdminLink.setVisible(getUserIsCustomer());
         customerCheckbox.setStyleName("disabled", !getUserIsCustomer());
     }
 
-    private void setVendorStyle() {
-        vendorLink.setVisible(getUserIsVendor());
-        vendorCheckbox.setStyleName("disabled", !getUserIsVendor());
+    private void setCompanyStyle() {
+        customerAccessLink.setVisible(getUserIsCompany());
+        companyCheckbox.setStyleName("disabled", !getUserIsCompany());
     }
 
     private void setAdminStyle() {
@@ -360,13 +360,13 @@ public class UserDetailsView extends Composite implements UserDetailsDisplay {
             divStyle.setDisplay(Display.BLOCK);            
 
             adminLink.setTitle("Save changes to enable this link");
-            customerLink.setTitle("Save changes to enable this link");
-            vendorLink.setTitle("Save changes to enable this link");
+            customerAdminLink.setTitle("Save changes to enable this link");
+            customerAccessLink.setTitle("Save changes to enable this link");
             resetPasswordButton.setTitle("Save changes to enable this link");
             
             adminLink.addStyleName("disabled");
-            customerLink.addStyleName("disabled");
-            vendorLink.addStyleName("disabled");
+            customerAdminLink.addStyleName("disabled");
+            customerAccessLink.addStyleName("disabled");
             resetPasswordButton.addStyleName("disabled");
             
             saveButton.setEnabled(isValid());
@@ -375,13 +375,13 @@ public class UserDetailsView extends Composite implements UserDetailsDisplay {
             divStyle.setDisplay(Display.NONE);            
 
             adminLink.setTitle(null);
-            customerLink.setTitle(null);
-            vendorLink.setTitle(null);
+            customerAdminLink.setTitle(null);
+            customerAccessLink.setTitle(null);
             resetPasswordButton.setTitle(null);
             
             adminLink.removeStyleName("disabled");
-            customerLink.removeStyleName("disabled");
-            vendorLink.removeStyleName("disabled");
+            customerAdminLink.removeStyleName("disabled");
+            customerAccessLink.removeStyleName("disabled");
             resetPasswordButton.removeStyleName("disabled");
             
             validateEmail();

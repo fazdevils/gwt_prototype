@@ -4,8 +4,8 @@
        <g:FocusPanel ui:field="home">
            <g:HTMLPanel> 
            	   <div class="gwt-tagline"> 
-	               <h1>Risk Profile Manager</h1>
-	               Identify, Score, and Manage Supplier Risk
+	               <h1>GWT Prototype</h1>
+	               Prototype demonstrating capabilities of GWT
   		       </div>
            </g:HTMLPanel>
 	   </g:FocusPanel>

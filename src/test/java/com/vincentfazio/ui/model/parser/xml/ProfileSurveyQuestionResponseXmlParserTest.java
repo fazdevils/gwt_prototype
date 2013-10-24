@@ -226,7 +226,7 @@ public class ProfileSurveyQuestionResponseXmlParserTest extends GWTTestCase {
 		            "<answered-by>customer1</answered-by>" +
 		            "<answer-value>8921</answer-value>" +
 		            "<is-accepted>true</is-accepted>" +
-		            "<answer-source>Vendor</answer-source>" +
+		            "<answer-source>Company</answer-source>" +
 		          "</profile-answer>" +
 		        "</answers>" +
 		      "</answer-grouping>" +
@@ -275,7 +275,7 @@ public class ProfileSurveyQuestionResponseXmlParserTest extends GWTTestCase {
 	            "<answered-by>customer1</answered-by>" +
 	            "<answer-value>true</answer-value>" +
 	            "<is-accepted>true</is-accepted>" +
-	            "<answer-source>Vendor</answer-source>" +
+	            "<answer-source>Company</answer-source>" +
 	          "</profile-answer>" +
 	          "<profile-answer>" +
 	            "<id>MultiState US Location</id>" +
@@ -295,7 +295,7 @@ public class ProfileSurveyQuestionResponseXmlParserTest extends GWTTestCase {
 	            "<answered-by>customer1</answered-by>" +
 	            "<answer-value>false</answer-value>" +
 	            "<is-accepted>true</is-accepted>" +
-	            "<answer-source>Vendor</answer-source>" +
+	            "<answer-source>Company</answer-source>" +
 	          "</profile-answer>" +
 	        "</answers>" +
 	      "</answer-grouping>" +

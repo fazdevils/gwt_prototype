@@ -8,17 +8,17 @@ import com.vincentfazio.ui.activity.MyPasswordActivity;
 import com.vincentfazio.ui.administration.activity.UserDetailsActivity;
 import com.vincentfazio.ui.administration.activity.UserListActivity;
 import com.vincentfazio.ui.administration.activity.UserPermissionsActivity;
-import com.vincentfazio.ui.administration.activity.VendorDetailsActivity;
-import com.vincentfazio.ui.administration.activity.VendorListActivity;
-import com.vincentfazio.ui.administration.activity.VendorUserPermissionsActivity;
+import com.vincentfazio.ui.administration.activity.CompanyDetailsActivity;
+import com.vincentfazio.ui.administration.activity.CompanyListActivity;
+import com.vincentfazio.ui.administration.activity.CompanyUserPermissionsActivity;
 import com.vincentfazio.ui.administration.place.MyUserPasswordPlace;
 import com.vincentfazio.ui.administration.place.MyUserSettingsPlace;
 import com.vincentfazio.ui.administration.place.UserDetailsPlace;
 import com.vincentfazio.ui.administration.place.UserListPlace;
 import com.vincentfazio.ui.administration.place.UserPermissionsPlace;
-import com.vincentfazio.ui.administration.place.VendorDetailsPlace;
-import com.vincentfazio.ui.administration.place.VendorListPlace;
-import com.vincentfazio.ui.administration.place.VendorUserPermissionsPlace;
+import com.vincentfazio.ui.administration.place.CompanyDetailsPlace;
+import com.vincentfazio.ui.administration.place.CompanyListPlace;
+import com.vincentfazio.ui.administration.place.CompanyUserPermissionsPlace;
 import com.vincentfazio.ui.global.Globals;
 
 public class AdminActivityMapper implements ActivityMapper {
@@ -42,12 +42,12 @@ public class AdminActivityMapper implements ActivityMapper {
             return new UserListActivity(globals, true);
         } else if (place instanceof UserDetailsPlace) {
             return new UserDetailsActivity(globals, ((UserDetailsPlace) place).getUid());
-        } else if (place instanceof VendorDetailsPlace) {
-            return new VendorDetailsActivity(globals, ((VendorDetailsPlace) place).getVendorId());
-        } else if (place instanceof VendorListPlace) {
-            return new VendorListActivity(globals, true);
-        } else if (place instanceof VendorUserPermissionsPlace) {
-            return new VendorUserPermissionsActivity(globals, ((VendorUserPermissionsPlace) place).getVendorId(), ((VendorUserPermissionsPlace) place).getRole());
+        } else if (place instanceof CompanyDetailsPlace) {
+            return new CompanyDetailsActivity(globals, ((CompanyDetailsPlace) place).getCompanyId());
+        } else if (place instanceof CompanyListPlace) {
+            return new CompanyListActivity(globals, true);
+        } else if (place instanceof CompanyUserPermissionsPlace) {
+            return new CompanyUserPermissionsActivity(globals, ((CompanyUserPermissionsPlace) place).getCompanyId(), ((CompanyUserPermissionsPlace) place).getRole());
         }
         return null;
     }

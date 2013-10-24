@@ -311,7 +311,7 @@ public class ProfileSurveyXmlParserTest extends GWTTestCase {
                                       "<answered-by>customer1</answered-by>" +
                                       "<answer-value>8921</answer-value>" +
                                       "<is-accepted>true</is-accepted>" +
-                                      "<answer-source>Vendor</answer-source>" +
+                                      "<answer-source>Company</answer-source>" +
                                     "</profile-answer>" +
                                   "</answers>" +
                                 "</answer-grouping>" +
@@ -331,7 +331,7 @@ public class ProfileSurveyXmlParserTest extends GWTTestCase {
                                       "<answered-by>customer1</answered-by>" +
                                       "<answer-value>1111</answer-value>" +
                                       "<is-accepted>true</is-accepted>" +
-                                      "<answer-source>Vendor</answer-source>" +
+                                      "<answer-source>Company</answer-source>" +
                                     "</profile-answer>" +
                                   "</answers>" +
                                 "</answer-grouping>" +
@@ -351,7 +351,7 @@ public class ProfileSurveyXmlParserTest extends GWTTestCase {
                                       "<answered-by>customer1</answered-by>" +
                                       "<answer-value>11</answer-value>" +
                                       "<is-accepted>true</is-accepted>" +
-                                      "<answer-source>Vendor</answer-source>" +
+                                      "<answer-source>Company</answer-source>" +
                                     "</profile-answer>" +
                                   "</answers>" +
                                 "</answer-grouping>" +
@@ -602,7 +602,7 @@ public class ProfileSurveyXmlParserTest extends GWTTestCase {
                                   "<answered-by>customer1</answered-by>" +
                                   "<answer-value>12</answer-value>" +
                                   "<is-accepted>true</is-accepted>" +
-                                  "<answer-source>Vendor</answer-source>" +
+                                  "<answer-source>Company</answer-source>" +
                                 "</profile-answer>" +
                               "</answers>" +
                             "</answer-grouping>" +
@@ -679,7 +679,7 @@ public class ProfileSurveyXmlParserTest extends GWTTestCase {
                                   "<answered-by>customer1</answered-by>" +
                                   "<answer-value>1</answer-value>" +
                                   "<is-accepted>true</is-accepted>" +
-                                  "<answer-source>Vendor</answer-source>" +
+                                  "<answer-source>Company</answer-source>" +
                                 "</profile-answer>" +
                               "</answers>" +
                             "</answer-grouping>" +
@@ -699,7 +699,7 @@ public class ProfileSurveyXmlParserTest extends GWTTestCase {
                                   "<answered-by>customer1</answered-by>" +
                                   "<answer-value>11</answer-value>" +
                                   "<is-accepted>true</is-accepted>" +
-                                  "<answer-source>Vendor</answer-source>" +
+                                  "<answer-source>Company</answer-source>" +
                                 "</profile-answer>" +
                               "</answers>" +
                             "</answer-grouping>" +
@@ -739,7 +739,7 @@ public class ProfileSurveyXmlParserTest extends GWTTestCase {
                                   "<answered-by>customer1</answered-by>" +
                                   "<answer-value>false</answer-value>" +
                                   "<is-accepted>true</is-accepted>" +
-                                  "<answer-source>Vendor</answer-source>" +
+                                  "<answer-source>Company</answer-source>" +
                                 "</profile-answer>" +
                               "</answers>" +
                             "</answer-grouping>" +
@@ -753,7 +753,7 @@ public class ProfileSurveyXmlParserTest extends GWTTestCase {
                           "<questions>" +
                             "<read-only-question>" +
                               "<id>SER</id>" +
-                              "<label>D&amp;B Supplier Evaluation Risk (SER) score</label>" +
+                              "<label>D&amp;B Company Evaluation Risk (SER) score</label>" +
                               "<answer-groupings/>" +
                               "<validation-type>integer</validation-type>" +
                             "</read-only-question>" +
@@ -1247,7 +1247,7 @@ public class ProfileSurveyXmlParserTest extends GWTTestCase {
                                   "<answered-by>customer1</answered-by>" +
                                   "<answer-value>true</answer-value>" +
                                   "<is-accepted>true</is-accepted>" +
-                                  "<answer-source>Vendor</answer-source>" +
+                                  "<answer-source>Company</answer-source>" +
                                 "</profile-answer>" +
                                 "<profile-answer>" +
                                   "<id>MultiState US Location</id>" +
@@ -1267,7 +1267,7 @@ public class ProfileSurveyXmlParserTest extends GWTTestCase {
                                   "<answered-by>customer1</answered-by>" +
                                   "<answer-value>false</answer-value>" +
                                   "<is-accepted>true</is-accepted>" +
-                                  "<answer-source>Vendor</answer-source>" +
+                                  "<answer-source>Company</answer-source>" +
                                 "</profile-answer>" +
                               "</answers>" +
                             "</answer-grouping>" +
@@ -1287,7 +1287,7 @@ public class ProfileSurveyXmlParserTest extends GWTTestCase {
                                   "<answered-by>customer1</answered-by>" +
                                   "<answer-value>false</answer-value>" +
                                   "<is-accepted>true</is-accepted>" +
-                                  "<answer-source>Vendor</answer-source>" +
+                                  "<answer-source>Company</answer-source>" +
                                 "</profile-answer>" +
                                 "<profile-answer>" +
                                   "<id>Travel Alert</id>" +
@@ -1297,7 +1297,7 @@ public class ProfileSurveyXmlParserTest extends GWTTestCase {
                                   "<answered-by>customer1</answered-by>" +
                                   "<answer-value>false</answer-value>" +
                                   "<is-accepted>true</is-accepted>" +
-                                  "<answer-source>Vendor</answer-source>" +
+                                  "<answer-source>Company</answer-source>" +
                                 "</profile-answer>" +
                                 "<profile-answer>" +
                                   "<id>High Crime Index</id>" +
@@ -1387,7 +1387,7 @@ public class ProfileSurveyXmlParserTest extends GWTTestCase {
                                   "<answered-by>customer1</answered-by>" +
                                   "<answer-value>false</answer-value>" +
                                   "<is-accepted>true</is-accepted>" +
-                                  "<answer-source>Vendor</answer-source>" +
+                                  "<answer-source>Company</answer-source>" +
                                 "</profile-answer>" +
                                 "<profile-answer>" +
                                   "<id>Natural Disaster Risk</id>" +
@@ -1706,7 +1706,7 @@ public class ProfileSurveyXmlParserTest extends GWTTestCase {
                           "</answer-groupings>" +
                         "</choose-many-question>" +
                         "<choose-many-question>" +
-                          "<id>Vendor Facility Services</id>" +
+                          "<id>Company Facility Services</id>" +
                           "<label>Dell services rely on the following, for which Dell is responsible:</label>" +
                           "<answer-groupings>" +
                             "<answer-grouping>" +
@@ -1849,7 +1849,7 @@ public class ProfileSurveyXmlParserTest extends GWTTestCase {
                                   "<answered-by>customer1</answered-by>" +
                                   "<answer-value>true</answer-value>" +
                                   "<is-accepted>true</is-accepted>" +
-                                  "<answer-source>Vendor</answer-source>" +
+                                  "<answer-source>Company</answer-source>" +
                                 "</profile-answer>" +
                               "</answers>" +
                             "</answer-grouping>" +
@@ -2285,7 +2285,7 @@ public class ProfileSurveyXmlParserTest extends GWTTestCase {
                                   "<answered-by>customer1</answered-by>" +
                                   "<answer-value>false</answer-value>" +
                                   "<is-accepted>true</is-accepted>" +
-                                  "<answer-source>Vendor</answer-source>" +
+                                  "<answer-source>Company</answer-source>" +
                                 "</profile-answer>" +
                                 "<profile-answer>" +
                                   "<id>COBIT Audit</id>" +
@@ -2295,7 +2295,7 @@ public class ProfileSurveyXmlParserTest extends GWTTestCase {
                                   "<answered-by>customer1</answered-by>" +
                                   "<answer-value>true</answer-value>" +
                                   "<is-accepted>true</is-accepted>" +
-                                  "<answer-source>Vendor</answer-source>" +
+                                  "<answer-source>Company</answer-source>" +
                                 "</profile-answer>" +
                                 "<profile-answer>" +
                                   "<id>HITRUSTCSF</id>" +
@@ -2305,7 +2305,7 @@ public class ProfileSurveyXmlParserTest extends GWTTestCase {
                                   "<answered-by>customer1</answered-by>" +
                                   "<answer-value>true</answer-value>" +
                                   "<is-accepted>true</is-accepted>" +
-                                  "<answer-source>Vendor</answer-source>" +
+                                  "<answer-source>Company</answer-source>" +
                                 "</profile-answer>" +
                                 "<profile-answer>" +
                                   "<id>Internal Audit Financial</id>" +
@@ -2315,7 +2315,7 @@ public class ProfileSurveyXmlParserTest extends GWTTestCase {
                                   "<answered-by>customer1</answered-by>" +
                                   "<answer-value>true</answer-value>" +
                                   "<is-accepted>true</is-accepted>" +
-                                  "<answer-source>Vendor</answer-source>" +
+                                  "<answer-source>Company</answer-source>" +
                                 "</profile-answer>" +
                                 "<profile-answer>" +
                                   "<id>Internal Audit Technology</id>" +
@@ -2390,7 +2390,7 @@ public class ProfileSurveyXmlParserTest extends GWTTestCase {
                                   "<answered-by>customer1</answered-by>" +
                                   "<answer-value>true</answer-value>" +
                                   "<is-accepted>true</is-accepted>" +
-                                  "<answer-source>Vendor</answer-source>" +
+                                  "<answer-source>Company</answer-source>" +
                                 "</profile-answer>" +
                                 "<profile-answer>" +
                                   "<id>PCI Quarterly Scanning</id>" +
@@ -2400,7 +2400,7 @@ public class ProfileSurveyXmlParserTest extends GWTTestCase {
                                   "<answered-by>customer1</answered-by>" +
                                   "<answer-value>true</answer-value>" +
                                   "<is-accepted>true</is-accepted>" +
-                                  "<answer-source>Vendor</answer-source>" +
+                                  "<answer-source>Company</answer-source>" +
                                 "</profile-answer>" +
                                 "<profile-answer>" +
                                   "<id>Penetration Test</id>" +
@@ -2410,7 +2410,7 @@ public class ProfileSurveyXmlParserTest extends GWTTestCase {
                                   "<answered-by>customer1</answered-by>" +
                                   "<answer-value>true</answer-value>" +
                                   "<is-accepted>true</is-accepted>" +
-                                  "<answer-source>Vendor</answer-source>" +
+                                  "<answer-source>Company</answer-source>" +
                                 "</profile-answer>" +
                                 "<profile-answer>" +
                                   "<id>Vulnerability Scan</id>" +
@@ -2420,7 +2420,7 @@ public class ProfileSurveyXmlParserTest extends GWTTestCase {
                                   "<answered-by>customer1</answered-by>" +
                                   "<answer-value>true</answer-value>" +
                                   "<is-accepted>true</is-accepted>" +
-                                  "<answer-source>Vendor</answer-source>" +
+                                  "<answer-source>Company</answer-source>" +
                                 "</profile-answer>" +
                                 "<profile-answer>" +
                                   "<id>Wireless security testing</id>" +

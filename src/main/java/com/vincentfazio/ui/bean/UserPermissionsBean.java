@@ -6,7 +6,7 @@ public class UserPermissionsBean {
     
     private String userId;
     private String role;
-    private List<String> vendorPermissionList;
+    private List<String> comapnyPermissionList;
     
     public String getUserId() {
         return userId;
@@ -20,11 +20,11 @@ public class UserPermissionsBean {
     public void setRole(String role) {
         this.role = role;
     }
-    public List<String> getVendorPermissionsList() {
-        return vendorPermissionList;
+    public List<String> getCompanyPermissionsList() {
+        return comapnyPermissionList;
     }
-    public void setVendorPermissionsList(List<String> vendorPermissionList) {
-        this.vendorPermissionList = vendorPermissionList;
+    public void setCompanyPermissionsList(List<String> companyPermissionList) {
+        this.comapnyPermissionList = companyPermissionList;
     }
     
 }

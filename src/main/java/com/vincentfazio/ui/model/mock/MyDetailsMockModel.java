@@ -37,40 +37,40 @@ public class MyDetailsMockModel implements MyDetailsModel, TaskModel, Documentat
         myDetailsBean.setUserId(userId);
         myDetailsBean.setName("Test User");
         myDetailsBean.setPhone("716-867-5309");
-        myDetailsBean.setVendorAccess(new ArrayList<String>());
+        myDetailsBean.setCompanyAccess(new ArrayList<String>());
         
-        List<String> vendorAccess = myDetailsBean.getVendorAccess();
-        String vendorName = "Vendor 1";
-        vendorAccess.add(vendorName);
+        List<String> companyAccess = myDetailsBean.getCompanyAccess();
+        String companyName = "Company 1";
+        companyAccess.add(companyName);
         if (createTasks) {
-        	createTasks(vendorName, 4);
+        	createTasks(companyName, 4);
         }
         
-        vendorName = "Vendor 2";
-        vendorAccess.add(vendorName);
+        companyName = "Company 2";
+        companyAccess.add(companyName);
         if (createTasks) {
-        	createTasks(vendorName, 2);
+        	createTasks(companyName, 2);
         }
         
-        vendorName = "Vendor 3";
-        vendorAccess.add(vendorName);
+        companyName = "Company 3";
+        companyAccess.add(companyName);
         if (createTasks) {
-        	createTasks(vendorName, 1);
+        	createTasks(companyName, 1);
         }
         
-        vendorName = "Vendor 4";
-        vendorAccess.add(vendorName);
+        companyName = "Company 4";
+        companyAccess.add(companyName);
 
     }
 
 
-    private void createTasks(String vendorName, int numberOfTasks) {
+    private void createTasks(String companyName, int numberOfTasks) {
         //SortedSet<TaskBean> taskList = new TreeSet<TaskBean>(new TaskBeanComparator());
         if (numberOfTasks > 0) {
             Date date = new Date();
             CalendarUtil.addDaysToDate(date, -21-numberOfTasks);
             TaskBean task = new TaskBean();
-            task.setVendor(vendorName);
+            task.setCompany(companyName);
             task.setRequestedBy("customer");
             task.setRequestedOn(date);
             task.setTaskType(TaskType.DemographicSurvey);
@@ -80,7 +80,7 @@ public class MyDetailsMockModel implements MyDetailsModel, TaskModel, Documentat
             Date date = new Date();
             CalendarUtil.addDaysToDate(date, -14-numberOfTasks);
             TaskBean task = new TaskBean();
-            task.setVendor(vendorName);
+            task.setCompany(companyName);
             task.setRequestedBy("customer");
             task.setRequestedOn(date);
             task.setTaskType(TaskType.ProfileSurvey);
@@ -90,7 +90,7 @@ public class MyDetailsMockModel implements MyDetailsModel, TaskModel, Documentat
             Date date = new Date();
             CalendarUtil.addDaysToDate(date, -7-numberOfTasks);
             TaskBean task = new TaskBean();
-            task.setVendor(vendorName);
+            task.setCompany(companyName);
             task.setRequestedBy("customer");
             task.setRequestedOn(date);
             task.setTaskType(TaskType.SecuritySurvey);
@@ -119,7 +119,7 @@ public class MyDetailsMockModel implements MyDetailsModel, TaskModel, Documentat
         copy.setPhone(bean.getPhone());
         copy.setTitle(bean.getTitle());
         copy.setUserId(bean.getUserId());
-        copy.setVendorAccess(bean.getVendorAccess());
+        copy.setCompanyAccess(bean.getCompanyAccess());
         return copy;
     }
 
@@ -147,10 +147,10 @@ public class MyDetailsMockModel implements MyDetailsModel, TaskModel, Documentat
 
 
 	@Override
-	public void updateDocumentationTask(String vendorName, Collection<DocumentationBean> documentationList) {
-		DocumentationTaskBean documentationTaskBean = documentationTasks.get(vendorName);
+	public void updateDocumentationTask(String companyName, Collection<DocumentationBean> documentationList) {
+		DocumentationTaskBean documentationTaskBean = documentationTasks.get(companyName);
 		if (null == documentationTaskBean) {
-			documentationTaskBean = createDocumentationTask(vendorName);
+			documentationTaskBean = createDocumentationTask(companyName);
 		}
 		
 		documentationTaskBean.addDocumentation(documentationList);
@@ -165,19 +165,19 @@ public class MyDetailsMockModel implements MyDetailsModel, TaskModel, Documentat
 		
 	}
 
-	private DocumentationTaskBean createDocumentationTask(final String vendorName) {
+	private DocumentationTaskBean createDocumentationTask(final String companyName) {
 		DocumentationTaskBean task = new DocumentationTaskBean();
-		task.setVendor(vendorName);
+		task.setCompany(companyName);
 		
-		documentationTasks.put(vendorName, task);
+		documentationTasks.put(companyName, task);
 		
 		return task;
 	}
 
 
 	@Override
-	public void getDocumentation(String vendorId, DocumentationBean documentation, AsyncCallback<DocumentationBean> asyncCallback) {
-		DocumentationTaskBean documentationTask = documentationTasks.get(vendorId);
+	public void getDocumentation(String companyId, DocumentationBean documentation, AsyncCallback<DocumentationBean> asyncCallback) {
+		DocumentationTaskBean documentationTask = documentationTasks.get(companyId);
 		if (null != documentationTask) {
 			String documentationName = documentation.getDocumentationName();
 			for (DocumentationBean documentationItem: documentationTask.getDocumentationList()) {
@@ -189,18 +189,18 @@ public class MyDetailsMockModel implements MyDetailsModel, TaskModel, Documentat
 			}
 			asyncCallback.onFailure(new Exception("No documentation found for " + documentationName));			
 		} else {
-			asyncCallback.onFailure(new Exception("No documentation items found for " + vendorId));
+			asyncCallback.onFailure(new Exception("No documentation items found for " + companyId));
 		}
 	}
 
 
 	@Override
-	public void getDocumentationList(String vendorId, AsyncCallback<Collection<DocumentationBean>> asyncCallback) {
-		DocumentationTaskBean documentationTask = documentationTasks.get(vendorId);
+	public void getDocumentationList(String companyId, AsyncCallback<Collection<DocumentationBean>> asyncCallback) {
+		DocumentationTaskBean documentationTask = documentationTasks.get(companyId);
 		if (null != documentationTask) {
 			asyncCallback.onSuccess(documentationTask.getDocumentationList());
 		} else {
-			asyncCallback.onFailure(new Exception("No documentation items found for " + vendorId));
+			asyncCallback.onFailure(new Exception("No documentation items found for " + companyId));
 		}
 		
 	}

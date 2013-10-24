@@ -29,7 +29,7 @@ public class OpenTaskXmlParserTest extends GWTTestCase {
         tasks = xmlParser.parse(
                 "<task-list>" +
                     "<survey-activity>" +
-                		"<vendor>Dell</vendor>" +
+                		"<company>Dell</company>" +
                 		"<days-since-created>41</days-since-created>" +
                 		"<days-since-last-activity>1</days-since-last-activity>" +
                 		"<number-of-reminder-emails-sent>0</number-of-reminder-emails-sent>" +
@@ -37,7 +37,7 @@ public class OpenTaskXmlParserTest extends GWTTestCase {
                 		"<last-activity>2012-11-19 11:26:42.000</last-activity>" +
             		"</survey-activity>" +
             		"<profile-survey-activity>" +
-                		"<vendor>Service Master Building Maintenance</vendor>" +
+                		"<company>Service Master Building Maintenance</company>" +
                 		"<days-since-created>8</days-since-created>" +
                 		"<days-since-last-activity>8</days-since-last-activity>" +
                 		"<number-of-reminder-emails-sent>0</number-of-reminder-emails-sent>" +
@@ -45,7 +45,7 @@ public class OpenTaskXmlParserTest extends GWTTestCase {
                 		"<last-activity>2011-01-31 14:14:53.000</last-activity>" +
             		"</profile-survey-activity>" +
                     "<demographic-survey-activity>" +
-                        "<vendor>Service Master Building Maintenance</vendor>" +
+                        "<company>Service Master Building Maintenance</company>" +
                         "<days-since-created>8</days-since-created>" +
                         "<days-since-last-activity>8</days-since-last-activity>" +
                         "<number-of-reminder-emails-sent>0</number-of-reminder-emails-sent>" +
@@ -57,15 +57,15 @@ public class OpenTaskXmlParserTest extends GWTTestCase {
         TaskBean[] taskArray = (TaskBean[]) tasks.toArray(new TaskBean[0]);
         TaskBean taskBean = taskArray[0];
         assertEquals(TaskType.SecuritySurvey, taskBean.getTaskType());
-        assertEquals("Dell", taskBean.getVendor());
+        assertEquals("Dell", taskBean.getCompany());
         
         taskBean = taskArray[2];
         assertEquals(TaskType.ProfileSurvey, taskBean.getTaskType());
-        assertEquals("Service Master Building Maintenance", taskBean.getVendor());
+        assertEquals("Service Master Building Maintenance", taskBean.getCompany());
 
         taskBean = taskArray[1];
         assertEquals(TaskType.DemographicSurvey, taskBean.getTaskType());
-        assertEquals("Service Master Building Maintenance", taskBean.getVendor());
+        assertEquals("Service Master Building Maintenance", taskBean.getCompany());
 	}
  
     @Override

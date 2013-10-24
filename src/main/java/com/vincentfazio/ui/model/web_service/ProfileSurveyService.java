@@ -23,14 +23,14 @@ public class ProfileSurveyService extends GwtService implements ProfileSurveyMod
         super();
         this.xmlParser = new ProfileSurveyXmlParser();
         this.questionResponseXmlParser = new ProfileSurveyQuestionResponseXmlParser();
-        this.baseUrl = globals.getServiceBaseUrl() + "/" + globals.getRole() + "/vendors";
+        this.baseUrl = globals.getServiceBaseUrl() + "/" + globals.getRole() + "/companies";
         this.globals = globals;
     }
 
 
     @Override
-    public void getQuestions(String vendorId, final AsyncCallback<List<QuestionBean>> asyncCallback) {
-        String url = getEncodedSurveyUrl(vendorId);
+    public void getQuestions(String companyId, final AsyncCallback<List<QuestionBean>> asyncCallback) {
+        String url = getEncodedSurveyUrl(companyId);
         ErrorModel errorModel = (ErrorModel) globals.getModel(ErrorModel.class);
         GwtRequestCallback<List<QuestionBean>> requestCallback = new GwtRequestCallback<List<QuestionBean>>(url, asyncCallback, xmlParser, errorModel);  
         RequestBuilder builder = createRequestBuilder(RequestBuilder.GET, url);
@@ -44,8 +44,8 @@ public class ProfileSurveyService extends GwtService implements ProfileSurveyMod
 
 
     @Override
-    public void getQuestion(String vendorId, final QuestionBean question, final AsyncCallback<QuestionBean> asyncCallback) {
-        String url = getEncodedSurveyQuestionUrl(vendorId, question.getQuestionId());
+    public void getQuestion(String companyId, final QuestionBean question, final AsyncCallback<QuestionBean> asyncCallback) {
+        String url = getEncodedSurveyQuestionUrl(companyId, question.getQuestionId());
         ErrorModel errorModel = (ErrorModel) globals.getModel(ErrorModel.class);
         
         GwtRequestCallback<QuestionBean> requestCallback = new GwtRequestCallback<QuestionBean>(url, asyncCallback, questionResponseXmlParser, errorModel);  
@@ -60,8 +60,8 @@ public class ProfileSurveyService extends GwtService implements ProfileSurveyMod
 
 
     @Override
-    public void answerQuestion(String vendorId, QuestionBean response, AsyncCallback<String> asyncCallback) {
-        String url = getEncodedSurveyQuestionUrl(vendorId, response.getQuestionId());
+    public void answerQuestion(String companyId, QuestionBean response, AsyncCallback<String> asyncCallback) {
+        String url = getEncodedSurveyQuestionUrl(companyId, response.getQuestionId());
         ErrorModel errorModel = (ErrorModel) globals.getModel(ErrorModel.class);
         RequestCallback requestCallback = new GwtStatusOnlyRequestCallback(url, asyncCallback, "Saved", errorModel);
         RequestBuilder builder = createRequestBuilder(RequestBuilder.PUT, url);
@@ -78,11 +78,11 @@ public class ProfileSurveyService extends GwtService implements ProfileSurveyMod
     }
     
  
-    private String getEncodedSurveyUrl(String vendorId) {
-        return encodeUrl(baseUrl + "/" + vendorId + "/profile_survey");
+    private String getEncodedSurveyUrl(String companyId) {
+        return encodeUrl(baseUrl + "/" + companyId + "/profile_survey");
     }
 
-    private String getEncodedSurveyQuestionUrl(String vendorId, String questionId) {
-        return encodeUrl(baseUrl + "/" + vendorId + "/profile_survey/question2/" + questionId);
+    private String getEncodedSurveyQuestionUrl(String companyId, String questionId) {
+        return encodeUrl(baseUrl + "/" + companyId + "/profile_survey/question2/" + questionId);
     }
 }

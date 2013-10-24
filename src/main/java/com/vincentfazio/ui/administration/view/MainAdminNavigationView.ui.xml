@@ -5,9 +5,9 @@
 	<g:StackLayoutPanel unit='EM' ui:field="adminMenu" animationDuration="500">
 		<g:stack>
 			<g:customHeader size="2">
-				<g:Label>Manage Suppliers</g:Label>
+				<g:Label>Manage Companies</g:Label>
 			</g:customHeader>
-			<gwt:VendorListView ui:field="vendorList"/>
+			<gwt:CompanyListView ui:field="companyList"/>
 		</g:stack>
 		<g:stack>
 			<g:customHeader size="2">

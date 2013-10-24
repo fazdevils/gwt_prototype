@@ -22,16 +22,16 @@
 		            </g:HTMLPanel>
 	                <g:HTMLPanel addStyleNames="gwt-permissions">
 	                    <div width="100%">
-	                        <gwt:DataProviderSearchBox ui:field="vendorSearchBox"
+	                        <gwt:DataProviderSearchBox ui:field="companySearchBox"
 	                            width="100%"></gwt:DataProviderSearchBox>
 	                    </div>
-	                    <div ui:field="vendorlistDiv">
-	                        <c:CellTable pageSize="14" ui:field="vendorPermissions"
+	                    <div ui:field="companylistDiv">
+	                        <c:CellTable pageSize="14" ui:field="companyPermissions"
 	                            width="100%" />
-	                        <c:SimplePager ui:field="vendorPermissionsPager" />
+	                        <c:SimplePager ui:field="companyPermissionsPager" />
 	                    </div>
-	                    <div ui:field="emptyVendorlistDiv">
-	                        <g:Label text="The supplier list is empty." addStyleNames="gwt-empty-list" />
+	                    <div ui:field="emptyCompanylistDiv">
+	                        <g:Label text="The company list is empty." addStyleNames="gwt-empty-list" />
 	                    </div>
 	
 	                </g:HTMLPanel>			        			        

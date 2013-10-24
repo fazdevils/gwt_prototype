@@ -53,7 +53,7 @@ public class TaskListXmlParser extends XmlParser<SortedSet<TaskBean>> {
 
     private TaskBean parseTaskBean(Element taskElement) {
         TaskBean taskBean = new TaskBean();
-        taskBean.setVendor(extractField(taskElement, "vendor"));
+        taskBean.setCompany(extractField(taskElement, "company"));
         taskBean.setRequestedBy(extractField(taskElement, "requested-by"));
         
         String requestedOn = extractField(taskElement, "requested-on");

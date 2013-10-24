@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class TaskBean {
     
-    private String vendor;
+    private String company;
     private TaskType taskType;
     private Date lastActivity;
     private String requestedBy;
@@ -12,11 +12,11 @@ public class TaskBean {
     private String completedBy;
     private Date completedOn;
     
-    public String getVendor() {
-        return vendor;
+    public String getCompany() {
+        return company;
     }
-    public void setVendor(String vendor) {
-        this.vendor = vendor;
+    public void setCompany(String company) {
+        this.company = company;
     }
     
     public TaskType getTaskType() {
