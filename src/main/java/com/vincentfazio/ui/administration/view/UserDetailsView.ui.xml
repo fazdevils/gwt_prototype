@@ -1,0 +1,68 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" 
+             xmlns:g="urn:import:com.google.gwt.user.client.ui" 
+             xmlns:d="urn:import:com.google.gwt.dom.client"
+             xmlns:gwt="urn:import:com.vincentfazio.ui.view.component">
+ 
+    <g:DockLayoutPanel unit="EM" addStyleNames="gwt-form-panel">
+        <g:center>
+            <g:ScrollPanel>
+                <g:HTMLPanel>
+		            <g:HTMLPanel addStyleNames="gwt-right-header-div">
+		                <h2>
+		                    <g:Label ui:field="userId"></g:Label>
+		                </h2>
+		                <div ui:field="deleteDiv" class="gwt-right-save-div">
+		                    <g:Anchor ui:field="deleteButton" text="Delete" title="Delete this user" addStyleNames="delete-button"/>
+		                </div>
+		                <div ui:field="saveDiv" class="gwt-right-save-div">
+		                    <g:Button ui:field="saveButton" text="Save" title="Save changes"/>
+		                    <g:Anchor ui:field="undoButton" text="Cancel" title="Revert unsaved changes"/>
+		                </div>
+		            </g:HTMLPanel>
+       	            <g:HTMLPanel addStyleNames="gwt-form">
+		                <g:HTMLPanel>
+		                    <g:Label addStyleNames="gwt-form-group-label">Contact Info:</g:Label>
+		                    <g:HTMLPanel addStyleNames="gwt-form-group-area">
+		                        <g:HTMLPanel addStyleNames="gwt-form-line">
+		                            <g:Label addStyleNames="gwt-form-label">Name:</g:Label>
+		                            <g:TextBox ui:field="name" addStyleNames="gwt-form-text"></g:TextBox>
+		                        </g:HTMLPanel>
+		                        <g:HTMLPanel addStyleNames="gwt-form-line">
+		                            <g:Label addStyleNames="gwt-form-label">Title:</g:Label>
+		                            <g:TextBox ui:field="title" addStyleNames="gwt-form-text"></g:TextBox>
+		                        </g:HTMLPanel>
+		                        <g:HTMLPanel addStyleNames="gwt-form-line">
+		                            <g:Label addStyleNames="gwt-form-label">Email:</g:Label>
+		                            <gwt:EmailValidationTextBox ui:field="email" addStyleNames="gwt-form-text" errorText="Email is not valid" title="Email Address"></gwt:EmailValidationTextBox>
+		                        </g:HTMLPanel>
+		                        <g:HTMLPanel addStyleNames="gwt-form-line">
+		                            <g:Label addStyleNames="gwt-form-label">Phone:</g:Label>
+		                            <gwt:PhoneValidationTextBox ui:field="phone" addStyleNames="gwt-form-text" title="Phone Number" errorText="Phone is not valid"></gwt:PhoneValidationTextBox>
+		                        </g:HTMLPanel>
+		                    </g:HTMLPanel>
+		                </g:HTMLPanel>
+		                <g:HTMLPanel>
+		                    <g:Label addStyleNames="gwt-form-group-label">Roles:</g:Label>
+		                    <g:HTMLPanel addStyleNames="gwt-form-group-area">
+		                        <g:HTMLPanel addStyleNames="gwt-form-line">
+		                            <g:CheckBox addStyleNames="gwt-form-checkbox" ui:field="adminCheckbox">Administrator</g:CheckBox>
+		                            <g:Anchor addStyleNames="gwt-form-link" ui:field="adminLink">Manage Supplier Access</g:Anchor>
+		                        </g:HTMLPanel>
+		                        <g:HTMLPanel addStyleNames="gwt-form-line">
+		                            <g:CheckBox addStyleNames="gwt-form-checkbox" ui:field="customerCheckbox">Customer</g:CheckBox>
+		                            <g:Anchor addStyleNames="gwt-form-link" ui:field="customerLink">Manage Supplier Access</g:Anchor>
+		                        </g:HTMLPanel>
+		                        <g:HTMLPanel addStyleNames="gwt-form-line">
+		                            <g:CheckBox addStyleNames="gwt-form-checkbox" ui:field="vendorCheckbox">Supplier</g:CheckBox>
+		                            <g:Anchor addStyleNames="gwt-form-link" ui:field="vendorLink">Manage Supplier Access</g:Anchor>
+		                        </g:HTMLPanel>
+		                    </g:HTMLPanel>
+		                </g:HTMLPanel>
+		                <g:Anchor addStyleNames="gwt-form-link" ui:field="resetPasswordButton">Reset Password</g:Anchor>
+		           </g:HTMLPanel>
+               </g:HTMLPanel>		                   
+           </g:ScrollPanel>
+        </g:center>
+    </g:DockLayoutPanel>
+</ui:UiBinder> 

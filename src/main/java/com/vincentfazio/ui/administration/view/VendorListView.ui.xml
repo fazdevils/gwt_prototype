@@ -1,0 +1,31 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:c="urn:import:com.google.gwt.user.cellview.client"
+	xmlns:gwt="urn:import:com.vincentfazio.ui.administration.view" xmlns:gwt2="urn:import:com.vincentfazio.ui.view.component">
+	<g:DockLayoutPanel unit="PX">
+		<g:west size="450">
+			<g:ScrollPanel height="100%">
+				<g:HTMLPanel addStyleNames="gwt-left-panel">
+				    <g:HorizontalPanel width="100%" addStyleNames="gwt-list-search-panel">
+					   <gwt2:DataProviderSearchBox ui:field="vendorSearchBox"></gwt2:DataProviderSearchBox>
+					   <g:Button text="Add" title="Add New Supplier" ui:field="addVendorButton" addStyleNames="gwt-list-add-button"/>
+					</g:HorizontalPanel>
+					<div ui:field="vendorlistDiv">
+						<c:CellTable pageSize='20' ui:field='vendors' width="100%" />
+						<c:SimplePager ui:field='pager' />
+					</div>
+					<div ui:field="emptyVendorlistDiv">
+						<g:Label text="The supplier list is empty." addStyleNames="gwt-empty-list" />
+					</div>
+				</g:HTMLPanel>
+			</g:ScrollPanel>
+		</g:west>
+		<g:center>
+			<g:DeckLayoutPanel ui:field="vendorDeck" animationDuration="500">
+				<gwt:VendorDetailsView ui:field="vendorDetails" />
+                <gwt:NoVendorSelectedView ui:field="noVendor" />
+                <gwt:VendorUserPermissionsView ui:field="vendorUserPermissions" />
+			</g:DeckLayoutPanel>
+		</g:center>
+	</g:DockLayoutPanel>
+</ui:UiBinder> 

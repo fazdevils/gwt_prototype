@@ -1,0 +1,29 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" 
+    xmlns:g="urn:import:com.google.gwt.user.client.ui" 
+    xmlns:c="urn:import:com.google.gwt.user.cellview.client"
+    xmlns:gwtv="urn:import:com.vincentfazio.ui.vendor.view">
+    <g:DockLayoutPanel unit="PX">
+        <g:west size="450">
+            <g:DockLayoutPanel unit="PX" addStyleNames="gwt-survey-nav">
+                <g:north size="55">
+                    <g:HTMLPanel>
+                        <gwtv:VendorSelectorView ui:field="vendorSelector"></gwtv:VendorSelectorView>
+                        <g:Label ui:field="surveyStatus" addStyleNames="survey-status"></g:Label>
+                        <g:Button addStyleNames="gwt-task-complete-button" ui:field="surveyCompleteButton" text="Survey Complete" title="Click to submit the survey"></g:Button>
+                    </g:HTMLPanel>
+                </g:north>
+                <g:center>
+	                <g:ScrollPanel height="100%">
+	                    <g:HTMLPanel addStyleNames="gwt-left-panel">
+	                        <c:CellTable pageSize='20' ui:field='questions' width="100%" />
+	                    </g:HTMLPanel>
+	                </g:ScrollPanel>
+                </g:center>                
+            </g:DockLayoutPanel>
+        </g:west>
+        <g:center>
+            <gwtv:ProfileSurveyQuestionView ui:field="question"/>
+        </g:center>
+    </g:DockLayoutPanel>
+</ui:UiBinder> 

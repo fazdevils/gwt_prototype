@@ -1,0 +1,20 @@
+/* Incremental changes from CellTable.css */ 
+.cellTableOddRow {
+    background-color: #e7edf8;
+}
+
+.cellTableEvenRow {
+    background-color: #ffffff;
+}
+
+.cellTableHoveredRow {
+    background-color: #d7dde8;
+}
+
+.cellTableSelectedRow {
+    background-color: #628cd5;
+    color: #fff;
+    -webkit-transition: background-color 5s ease;
+    -moz-transition: background-color 5s ease;
+    transition: background-color 5s ease;
+}

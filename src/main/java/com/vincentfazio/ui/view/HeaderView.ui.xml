@@ -1,0 +1,17 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui">
+    <g:HTMLPanel addStyleNames="gwt-header">
+       <g:FocusPanel ui:field="home">
+           <g:HTMLPanel> 
+           	   <div class="gwt-tagline"> 
+	               <h1>Risk Profile Manager</h1>
+	               Identify, Score, and Manage Supplier Risk
+  		       </div>
+           </g:HTMLPanel>
+	   </g:FocusPanel>
+       <div class="gwt-settings">
+           <g:Anchor ui:field="userWelcome" addStyleNames="whoami" title="User Settings"/>
+           <g:Anchor ui:field="logoutButton" text="(Sign out)" addStyleNames="logout"/>
+       </div>
+    </g:HTMLPanel>
+</ui:UiBinder> 
