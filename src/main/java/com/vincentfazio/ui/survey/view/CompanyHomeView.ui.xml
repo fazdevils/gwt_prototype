@@ -1,0 +1,16 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" 
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:gwt="urn:import:com.vincentfazio.ui.survey.view"
+             xmlns:doc="urn:import:com.vincentfazio.ui.survey.view.documentation"
+             xmlns:gwt_shared="urn:import:com.vincentfazio.ui.view">
+            
+            <g:DeckLayoutPanel ui:field="companyScreens" animationDuration="500">
+                <gwt:CompanyDetailsView ui:field="companyDetails"/>
+                <gwt:SecuritySurveyView ui:field="securitySurvey"/>
+                <gwt:ProfileSurveyView ui:field="profileSurvey"/>
+                <gwt_shared:MyDetailsView ui:field="userSettings"/>
+                <gwt_shared:MyPasswordView ui:field="userPassword"/>
+                <doc:DocumentationListView ui:field="documentation"/>
+            </g:DeckLayoutPanel>
+</ui:UiBinder> 

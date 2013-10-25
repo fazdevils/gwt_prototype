@@ -1,0 +1,19 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:c="urn:import:com.google.gwt.user.cellview.client">
+	<g:ScrollPanel height="100%">
+		<g:HTMLPanel addStyleNames="gwt-left-panel">
+
+			<div ui:field="taskDiv">
+				<c:CellTable pageSize='20' ui:field='tasks' width="100%" />
+			    <div ui:field="taskPagerDiv">
+				    <c:SimplePager ui:field='taskPager' />
+				</div>
+			</div>
+			<div ui:field="emptyTaskDiv">
+				<g:Label text="There are no tasks." addStyleNames="gwt-empty-list" />
+			</div>
+		</g:HTMLPanel>
+	</g:ScrollPanel>
+</ui:UiBinder> 

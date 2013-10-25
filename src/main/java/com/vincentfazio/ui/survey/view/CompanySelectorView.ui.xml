@@ -1,0 +1,12 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" 
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:gwt="urn:import:com.vincentfazio.ui.view.component">
+            
+    <g:HTMLPanel>
+		<h2>
+		    <g:Label ui:field="companyId"></g:Label>
+		    <gwt:ValidationSuggestBox ui:field="companySearchBox" />
+		</h2>
+	</g:HTMLPanel>
+</ui:UiBinder> 
