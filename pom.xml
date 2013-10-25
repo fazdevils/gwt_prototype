@@ -16,6 +16,12 @@
 		<maven.compiler.target>1.6</maven.compiler.target>
 	</properties>
 
+    <scm>
+        <connection>scm:git:https://github.com/fazdevils/gwt_prototype.git</connection>
+        <developerConnection>scm:git:https://github.com/fazdevils/gwt_prototype.git</developerConnection>
+        <url>https://github.com/fazdevils/gwt_prototype</url>
+    </scm>
+
     <dependencies>
 		<dependency>
 			<groupId>com.google.gwt</groupId>
@@ -196,11 +202,10 @@
                     </archive>
                 </configuration>
             </plugin>
-            <!-- 
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>buildnumber-maven-plugin</artifactId>
-                <version>1.1</version>
+                <version>1.2</version>
                 <executions>
                     <execution>
                         <phase>validate</phase>
@@ -224,7 +229,6 @@
                     <timestampFormat>{0,date,yyyy-MM-dd HH:mm:ss}</timestampFormat>
                 </configuration>
             </plugin>
-            -->
  
 			<!-- Delete gwt generated stuff -->
 			<plugin>
